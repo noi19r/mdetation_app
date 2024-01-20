@@ -15,7 +15,10 @@ class HomePage extends StatelessWidget {
         child: orientation == Orientation.portrait
             ? const Stack(children: [
                 GetStartedBackground(),
-                GetStartedHeader(),
+                FractionallySizedBox(
+                  heightFactor: 0.4,
+                  child: GetStartedHeader(),
+                ),
               ])
             : const Row(
                 children: [
@@ -55,11 +58,42 @@ class GetStartedHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SvgPicture.asset('assets/images/ic_logo.svg'),
-        const Text('Hi Afsar, Welcome'),
-        const Text('to Silent Moon'),
-        const Text(
-            'Explore the app, Find some peace of mind to prepare for meditation.')
+        Expanded(
+          child: SvgPicture.asset(
+            'assets/images/ic_logo.svg',
+            alignment: const Alignment(0.0, -0.8),
+          ),
+        ),
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              RichText(
+                text: TextSpan(
+                  text: 'Hi Afsar, Welcome\n',
+                  style: PrimaryFont.medium(30).copyWith(
+                    color: kColorLightYellow,
+                    height: 1.3,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: 'to Silent Moon',
+                      style: PrimaryFont.thin(30).copyWith(
+                        color: kColorLightYellow,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Text(
+                'Explore the app, Find some peace of mind to prepare for meditation.',
+                style: PrimaryFont.light(16).copyWith(
+                  color: kColorLightGrey,
+                ),
+              ),
+            ],
+          ),
+        )
       ],
     );
   }
