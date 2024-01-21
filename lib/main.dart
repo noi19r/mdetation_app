@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:meditation_app/pages/home_page.dart';
+import 'package:meditation_app/pages/choose_topic_page.dart';
+import 'package:meditation_app/pages/get_started_page.dart';
 import 'package:meditation_app/utils/theme.dart';
 
 void main() {
@@ -17,7 +18,11 @@ class MyApp extends StatelessWidget {
         primaryColor: kColorPrimary,
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      initialRoute: '$GetStartedPage',
+      routes: {
+        '$GetStartedPage': (_) => const GetStartedPage(),
+        '$ChooseTopicPage': (_) => const ChooseTopicPage(),
+      },
     );
   }
 }

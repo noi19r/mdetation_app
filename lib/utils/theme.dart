@@ -30,4 +30,12 @@ class PrimaryFont {
       fontWeight: FontWeight.w300,
     );
   }
+
+  static TextStyle bold(double size) {
+    return TextStyle(
+      fontSize: size,
+      fontFamily: fontFamily,
+      fontWeight: FontWeight.w700,
+    );
+  }
 }
